@@ -6,7 +6,8 @@ export const loginAdmin = createAsyncThunk(
   'auth/loginAdmin',
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await axiosInstance.post('/admin/login', credentials);
+      console.log("credentials", credentials);
+      const response = await axiosInstance.post('/auth/admin/login', credentials);
       const data = response.data;
 
       // Store token in localStorage
@@ -44,7 +45,7 @@ export const checkAuthStatus = createAsyncThunk(
       }
 
       // Verify token with backend
-      const response = await axiosInstance.get('/admin/verify');
+      const response = await axiosInstance.get('/auth/admin/profile');
       return response.data;
     } catch (error) {
       localStorage.removeItem('adminToken');
