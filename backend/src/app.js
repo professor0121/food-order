@@ -5,12 +5,13 @@ import cookieParser from 'cookie-parser';
 import rabbitmq from './services/rabbit.js';
 import orderRoutes from './routes/order.route.js';
 import cors from 'cors';
+import morgan from 'morgan';
 
 
 rabbitmq.connect();
 
 const app = express();
-
+app.use(morgan());
 app.use(cors({
     origin: '*', // 🛑 change this to your frontend domain
     credentials: true
