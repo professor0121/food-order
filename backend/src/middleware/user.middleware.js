@@ -1,6 +1,7 @@
 import { verifyToken } from '../utils/jsonWebToken.js';
 import asyncHandler from '../utils/asyncHandler.js';
 import BlacklistToken from '../models/blacklistToken.model.js';
+import { findUserByEmail } from '../dao/user.dao.js';
 
 export const isAuthenticated = asyncHandler(async (req, res, next) => {
   const token = req.cookies.token || req.header('Authorization')?.replace('Bearer ', '');
@@ -19,6 +20,8 @@ export const isAuthenticated = asyncHandler(async (req, res, next) => {
   }
 
   const decoded = verifyToken(token);
-  req.user = decoded;
+  const user=await findUserByEmail(decoded.email);
+  req.user = user;
+  console.log("user form middleware",req.user);
   next();
 });
