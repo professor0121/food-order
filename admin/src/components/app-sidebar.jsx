@@ -31,6 +31,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
+
 const data = {
   user: {
     name: "shadcn",
@@ -148,9 +149,13 @@ const data = {
   ],
 }
 
+import { useSelector } from 'react-redux';
+
 export function AppSidebar({
   ...props
 }) {
+  const user = useSelector((state) => state.auth.user)
+ console.log(user)
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
