@@ -4,8 +4,8 @@ import { adminAuth } from "../middleware/admin.middleware.js";
 
 const route = express.Router();
 
-route.post('/auth/register', registerAdmin);
-route.post('/auth/login', loginAdmin);
+route.post('/register', registerAdmin);
+route.post('/login', loginAdmin);
 route.get('/logout',adminAuth,logoutAdmin);
 route.get('/profile',adminAuth,getAdminProfile);
 

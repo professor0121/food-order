@@ -3,6 +3,7 @@ import userRoutes from './routes/user.route.js';
 import adminRoutes from './routes/admin.route.js';
 import cookieParser from 'cookie-parser';
 import rabbitmq from './services/rabbit.js';
+import orderRoutes from './routes/order.route.js';
 import cors from 'cors';
 
 
@@ -20,7 +21,8 @@ app.use(cookieParser(
 
 ));
 
-app.use("/api/users", userRoutes);
-app.use("/api/admin", adminRoutes);
+app.use("/api/auth/users", userRoutes);
+app.use("/api/auth/admin", adminRoutes);
+app.use('/api/user/order', orderRoutes)
 
 export default app;
