@@ -4,6 +4,8 @@ import adminRoutes from './routes/admin.route.js';
 import cookieParser from 'cookie-parser';
 import rabbitmq from './services/rabbit.js';
 import orderRoutes from './routes/order.route.js';
+import userTiffinRoutes from './routes/userTiffin.route.js';
+import adminTiffinRoutes from './routes/adminTiffin.route.js';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -13,7 +15,7 @@ rabbitmq.connect();
 const app = express();
 app.use(morgan());
 app.use(cors({
-    origin: '*', // 🛑 change this to your frontend domain
+    origin: '*', 
     credentials: true
 }));
 app.use(express.json());
@@ -25,5 +27,8 @@ app.use(cookieParser(
 app.use("/api/auth/users", userRoutes);
 app.use("/api/auth/admin", adminRoutes);
 app.use('/api/user/order', orderRoutes)
+app.use('/api/user/tiffin',userTiffinRoutes);
+app.use('/api/admin/tiffin',adminTiffinRoutes);
+
 
 export default app;
