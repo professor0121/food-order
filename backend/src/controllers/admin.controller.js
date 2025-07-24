@@ -1,4 +1,4 @@
-import { registerAdminService,loginAdminService } from "../services/admin.service.js";
+import { registerAdminService,loginAdminService,getAllUsersService } from "../services/admin.service.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { cookieOptions } from "../config/cookie.config.js";
 import {signToken} from "../utils/jsonWebToken.js";
@@ -41,5 +41,14 @@ export const getAdminProfile = asyncHandler(async (req, res) => {
     message: "Admin profile fetched successfully",
     admin: req.admin,
     token
+  });
+});
+
+export const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await getAllUsersService();
+  res.status(200).json({
+    success: true,
+    message: "Users fetched successfully",
+    users,
   });
 });

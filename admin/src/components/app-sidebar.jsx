@@ -51,9 +51,9 @@ const data = {
       icon: IconShoppingCart,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: IconListDetails,
+      title: "Users",
+      url: "/users",
+      icon: IconUsers,
     },
     {
       title: "Analytics",
@@ -64,11 +64,6 @@ const data = {
       title: "Projects",
       url: "#",
       icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
     },
   ],
   navClouds: [
