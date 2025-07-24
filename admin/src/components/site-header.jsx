@@ -8,6 +8,8 @@ export function SiteHeader() {
 
   const getPageTitle = () => {
     switch (location.pathname) {
+      case '/users':
+        return 'Users';
       case '/dashboard':
         return 'Dashboard';
       case '/orders':

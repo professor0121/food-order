@@ -1,4 +1,4 @@
-import { findAdminByEmail, createAdmin } from "../dao/admin.dao.js";
+import { findAdminByEmail, createAdmin ,getAllUsers} from "../dao/admin.dao.js";
 import { hashPassword,comparePassword } from "../utils/bcrypt.js";
 import { signToken } from "../utils/jsonWebToken.js";
 
@@ -26,4 +26,9 @@ export const loginAdminService = async ({ email, password }) => {
     const token = signToken(email);
     delete admin._doc.password;
     return { admin, token };
+}
+
+export const getAllUsersService = async () => {
+    const users = await getAllUsers();
+    return users;
 }

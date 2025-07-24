@@ -7,6 +7,7 @@ import orderRoutes from './routes/order.route.js';
 import userTiffinRoutes from './routes/userTiffin.route.js';
 import adminTiffinRoutes from './routes/adminTiffin.route.js';
 import adminOrderRoutes from './routes/adminOrder.route.js';
+import adminUserRoutes from './routes/adminUser.route.js';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -35,6 +36,7 @@ app.use('/api/user/order', orderRoutes)
 app.use('/api/user/tiffin',userTiffinRoutes);
 app.use('/api/admin/tiffin',adminTiffinRoutes);
 app.use('/api/admin', adminOrderRoutes);
+app.use('/api/admin/users',adminUserRoutes);
 
 
 export default app;
