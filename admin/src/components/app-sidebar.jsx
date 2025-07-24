@@ -14,6 +14,7 @@ import {
   IconReport,
   IconSearch,
   IconSettings,
+  IconShoppingCart,
   IconUsers,
 } from "@tabler/icons-react"
 
@@ -41,8 +42,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
+    },
+    {
+      title: "Orders",
+      url: "/orders",
+      icon: IconShoppingCart,
     },
     {
       title: "Lifecycle",
