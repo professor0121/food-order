@@ -6,6 +6,7 @@ import rabbitmq from './services/rabbit.js';
 import orderRoutes from './routes/order.route.js';
 import userTiffinRoutes from './routes/userTiffin.route.js';
 import adminTiffinRoutes from './routes/adminTiffin.route.js';
+import adminOrderRoutes from './routes/adminOrder.route.js';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -33,6 +34,7 @@ app.use("/api/auth/admin", adminRoutes);
 app.use('/api/user/order', orderRoutes)
 app.use('/api/user/tiffin',userTiffinRoutes);
 app.use('/api/admin/tiffin',adminTiffinRoutes);
+app.use('/api/admin', adminOrderRoutes);
 
 
 export default app;
