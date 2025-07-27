@@ -15,15 +15,17 @@ export const registerAdminService = async ({ name, email, password }) => {
 }
 
 export const loginAdminService = async ({ email, password }) => {
+    console.log("email pass romo jservidffkdjfjdk ",email,password);
     const admin = await findAdminByEmail(email);
     if (!admin) {
         throw new Error("Admin does not exist");
     }
     const isPasswordValid = await comparePassword(password, admin.password);
+    console.log("isPasswordValid",isPasswordValid);
     if (!isPasswordValid) {
         throw new Error("Invalid password");
     }
-    const token = signToken(email);
+    const token = await signToken(email);
     delete admin._doc.password;
     return { admin, token };
 }
