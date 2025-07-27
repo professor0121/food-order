@@ -15,7 +15,9 @@ import morgan from 'morgan';
 rabbitmq.connect();
 
 const app = express();
+
 app.use(morgan());
+
 app.use(cors({
   origin: ['http://localhost:5174', 'http://localhost:5173'], 
   credentials: true
@@ -26,10 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
-app.use((req,res,next)=>{
-    console.log(req.body);
-    next();
-})
 app.use("/api/auth/users", userRoutes);
 app.use("/api/auth/admin", adminRoutes);
 app.use('/api/user/order', orderRoutes)
