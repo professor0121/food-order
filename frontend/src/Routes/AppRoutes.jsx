@@ -7,6 +7,7 @@ import Checkout2 from '../Pages/CheckoutPage2.jsx'
 import NotFound from '../Pages/NotFound.jsx';
 import Home from '../Pages/Home.jsx'
 import Layout from './layout.jsx'
+import ProtectedRoute from '@/components/ProtectedRoute.jsx';
 
 const AppRoutes = () => {
   return (
@@ -15,7 +16,7 @@ const AppRoutes = () => {
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Login />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path='/register' element={<Register />} />
         <Route path='/chackout-1' element={<Checkout1 />} />
         <Route path='/chackout-2' element={<Checkout2 />} />

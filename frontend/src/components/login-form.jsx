@@ -54,7 +54,7 @@ const LoginForm = ({ className, ...props }) => {
   useEffect(() => {
     if (isAuthenticated) {
       toast.success("Logged in successfully")
-      navigate("/dashboard")
+      navigate("/home")
     }
     if (error) {
       toast.error(error)
