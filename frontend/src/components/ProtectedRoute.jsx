@@ -1,26 +1,19 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '@/Redux/hooks'
-import { checkAuthStatus } from '@/Redux/slices/authSlice'
+import { Navigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadUserFromToken } from '@/Redux/slices/authSlice'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const ProtectedRoute = ({ children }) => {
-  const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  const { isAuthenticated, loading, token } = useAppSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  const { isAuthenticated, loading, token } = useSelector((state) => state.auth)
 
   useEffect(() => {
-    // If there's a token but not authenticated, verify it
     if (token && !isAuthenticated && !loading) {
-      dispatch(checkAuthStatus())
+      dispatch(loadUserFromToken())
     }
-    // If no token and not authenticated, redirect to login
-    else if (!token && !isAuthenticated && !loading) {
-      navigate('/')
-    }
-  }, [token, isAuthenticated, loading, dispatch, navigate])
+  }, [token, isAuthenticated, loading, dispatch])
 
-  // Show loading skeleton while checking authentication
   if (loading) {
     return (
       <div className="flex h-screen w-full items-center justify-center">
@@ -35,12 +28,10 @@ const ProtectedRoute = ({ children }) => {
     )
   }
 
-  // If not authenticated and not loading, don't render children
   if (!isAuthenticated && !loading) {
-    return null
+    return <Navigate to="/" replace />
   }
 
-  // If authenticated, render the protected content
   return children
 }
 

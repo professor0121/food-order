@@ -19,8 +19,8 @@ export const registerUser = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: "user already exist" })
     }
 
-    const {newUser, token }=await createNewUser({ name, email, password });
-    res.status(201).json({newUser,token, message: "user created successfully" })
+    const {newUser}=await createNewUser({ name, email, password });
+    res.status(201).json({newUser, message: "user created successfully" })
 
 })
 
