@@ -8,6 +8,8 @@ import userTiffinRoutes from './routes/userTiffin.route.js';
 import adminTiffinRoutes from './routes/adminTiffin.route.js';
 import adminOrderRoutes from './routes/adminOrder.route.js';
 import adminUserRoutes from './routes/adminUser.route.js';
+import paymentRoutes from './routes/payment.route.js';
+import razorpayConnectionCheck from './middleware/razorpay.middleware.js';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -26,6 +28,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(razorpayConnectionCheck);
 
 
 app.use("/api/auth/users", userRoutes);
@@ -36,5 +39,7 @@ app.use('/api/admin/tiffin',adminTiffinRoutes);
 app.use('/api/admin', adminOrderRoutes);
 app.use('/api/admin/users',adminUserRoutes);
 
+///route for payment
+app.use('/api/payment', paymentRoutes);
 
 export default app;
