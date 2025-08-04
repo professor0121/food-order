@@ -12,11 +12,32 @@ import paymentRoutes from './routes/payment.route.js';
 import razorpayConnectionCheck from './middleware/razorpay.middleware.js';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 
 rabbitmq.connect();
 
 const app = express();
+
+// For __dirname (ESM)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Set view engine
+app.set('view engine', 'ejs');
+
+// Set views directory (if it's inside 'src/views' for example)
+app.use(express.static(path.join(__dirname, '../public')));
+
+
+app.get('/ejs-test', (req, res) => {
+  res.render('index');
+});
+
+
+
+
 
 app.use(morgan());
 
