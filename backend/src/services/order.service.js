@@ -1,4 +1,5 @@
 import { createOrder, cancelOrder ,trackOrder} from "../dao/order.dao.js";
+import { sendNotificationToAdmin } from "../utils/sendEmail.js";
 
 export const createOrderService = async ({ user, items }) => {
   if (!items || items.length === 0) {
@@ -9,6 +10,8 @@ export const createOrderService = async ({ user, items }) => {
     return sum + item.price * item.quantity;
   }, 0);
 
+  await sendNotificationToAdmin({ user, items, totalPrice });
+  await sendNotificationToUser(user.email, { user, items, totalPrice });
   return await createOrder({
     user,
     items,
