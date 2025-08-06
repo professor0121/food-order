@@ -9,6 +9,7 @@ import Home from '../Pages/Home.jsx'
 import Layout from './layout.jsx'
 import ProtectedRoute from '@/components/ProtectedRoute.jsx';
 import About from '../Pages/About.jsx';
+import FoodMenu from '../Pages/FoodMenu.jsx';
 
 const AppRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const AppRoutes = () => {
         <Route path='/chackout-1' element={<Checkout1 />} />
         <Route path='/chackout-2' element={<Checkout2 />} />
         <Route path='/about' element={<ProtectedRoute><About /></ProtectedRoute>} />
+        <Route path='/food-menu' element={<FoodMenu />} />
       </Routes>
     </Layout>
   )
