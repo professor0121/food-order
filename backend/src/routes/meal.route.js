@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createMeal } from '../controllers/meal.controller.js';
+import { createMeal ,getAllMeals} from '../controllers/meal.controller.js';
 import { adminAuth } from '../middleware/admin.middleware.js';
 
 const router = express.Router();
@@ -9,5 +9,5 @@ const upload = multer({ storage });
 
 // POST /api/meals
 router.post('/create',adminAuth, createMeal);
-
+router.get('/', adminAuth,getAllMeals);
 export default router;

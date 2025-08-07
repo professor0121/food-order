@@ -10,6 +10,16 @@ export const createMeal = createAsyncThunk("meal/createMeal", async (mealData, t
   }
 });
 
+export const getAllMeals = createAsyncThunk("meal/getAllMeals", async (_, thunkAPI) => {
+  try {
+    const response = await axiosInstance.get("/admin/meals");
+    console.log("Fetched meals:", response.data);
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response.data);
+  }
+});
+
 const initialState = {
   loading: false,
   success: false,
@@ -38,6 +48,21 @@ const mealSlice = createSlice({
         state.success = true;
       })
       .addCase(createMeal.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      
+      
+      
+      .addCase(getAllMeals.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getAllMeals.fulfilled, (state, action) => {
+        state.loading = false;
+        state.meals = action.payload;
+      })
+      .addCase(getAllMeals.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
