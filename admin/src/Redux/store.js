@@ -5,6 +5,7 @@ import ordersReducer from './slices/ordersSlice';
 import menuReducer from './slices/menuSlice';
 import usersReducer from './slices/usersSlice';
 import mealsReducer from './slices/mealsSlice.js'; // Assuming you have a meals slice
+import tiffinReducer from './slices/tiffinSlice.js'; // Assuming you have a tiffin slice
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     menu: menuReducer,
     users: usersReducer,
     meals:mealsReducer, // Assuming you have a meals slice
+    tiffin:tiffinReducer, // Assuming you have a tiffin slice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

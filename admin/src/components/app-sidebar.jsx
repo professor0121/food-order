@@ -16,7 +16,8 @@ import {
   IconSettings,
   IconShoppingCart,
   IconUsers,
-  IconBowlChopsticks
+  IconBowlChopsticks,
+  IconBrandCodesandbox
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -62,9 +63,9 @@ const data = {
       icon: IconBowlChopsticks,
     },
     {
-      title: "Projects",
-      url: "#",
-      icon: IconFolder,
+      title: "Tiffin",
+      url: "/tiffin",
+      icon: IconBrandCodesandbox,
     },
   ],
   navClouds: [

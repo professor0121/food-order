@@ -6,6 +6,7 @@ import Login from '../Pages/LoginPage';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AllUsers from '../Pages/AllUsers';
 import Meal from '@/Pages/Meal';
+import Tiffin from '@/Pages/Tiffin';
 
 const AppRoutes = () => {
   return (
@@ -44,6 +45,15 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
         />
+
+      <Route
+        path='/tiffin'
+        element={
+          <ProtectedRoute>
+            <Tiffin />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   )
 }
