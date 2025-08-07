@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { createMeal, resetMealState } from "@/Redux/slices/mealsSlice";
-import axiosInstance from '../Axios/AxiosInstance';
-
 
 const MealForm = () => {
     const dispatch = useDispatch();
@@ -31,7 +29,10 @@ const MealForm = () => {
         const formData = new FormData();
         formData.append("image", imageFile);
 
-        const res = await axiosInstance.post('/image/upload', formData);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/image/upload`, {
+            method: "POST",
+            body: formData,
+        });
 
         const data = await res.json();
         console.log("Image upload response:", data);
