@@ -8,7 +8,7 @@ export const createMeal = asyncHandler(async (req, res) => {
   const meal = new Meal({
     title,
     category,
-    items: JSON.parse(items),
+    items,
     price,
     specialToday: specialToday === 'true',
     image: image, // Ensure image is set, even if empty

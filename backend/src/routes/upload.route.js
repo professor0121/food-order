@@ -7,8 +7,9 @@ const router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-router.post('/upload',adminAuth, upload.single('image'), async (req, res) => {
+router.post('/upload', upload.single('image'), async (req, res) => {
   try {
+    console.log("Received file:", req.file);
     const buffer = req.file.buffer;
     const base64 = `data:${req.file.mimetype};base64,${buffer.toString('base64')}`;
     
