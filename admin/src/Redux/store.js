@@ -4,6 +4,7 @@ import dashboardReducer from './slices/dashboardSlice';
 import ordersReducer from './slices/ordersSlice';
 import menuReducer from './slices/menuSlice';
 import usersReducer from './slices/usersSlice';
+import mealsReducer from './slices/mealsSlice.js'; // Assuming you have a meals slice
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     orders: ordersReducer,
     menu: menuReducer,
     users: usersReducer,
+    meals:mealsReducer, // Assuming you have a meals slice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

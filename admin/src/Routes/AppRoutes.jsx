@@ -5,16 +5,17 @@ import Orders from '../Pages/Orders';
 import Login from '../Pages/LoginPage';
 import ProtectedRoute from '../components/ProtectedRoute';
 import AllUsers from '../Pages/AllUsers';
+import Meal from '@/Pages/Meal';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Login/>} />
+      <Route path='/' element={<Login />} />
       <Route
         path='/dashboard'
         element={
           <ProtectedRoute>
-            <Dashboard/>
+            <Dashboard />
           </ProtectedRoute>
         }
       />
@@ -22,7 +23,7 @@ const AppRoutes = () => {
         path='/orders'
         element={
           <ProtectedRoute>
-            <Orders/>
+            <Orders />
           </ProtectedRoute>
         }
       />
@@ -31,12 +32,18 @@ const AppRoutes = () => {
         path='/users'
         element={
           <ProtectedRoute>
-            <AllUsers/>
+            <AllUsers />
           </ProtectedRoute>
         }
       />
-
-      
+      <Route
+        path='/meals'
+        element={
+          <ProtectedRoute>
+            <Meal />
+          </ProtectedRoute>
+        }
+        />
     </Routes>
   )
 }
