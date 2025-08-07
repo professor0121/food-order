@@ -16,6 +16,7 @@ import {
   IconSettings,
   IconShoppingCart,
   IconUsers,
+  IconBowlChopsticks
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -56,9 +57,9 @@ const data = {
       icon: IconUsers,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: IconChartBar,
+      title: "Meals",
+      url: "/meals",
+      icon: IconBowlChopsticks,
     },
     {
       title: "Projects",

@@ -14,7 +14,8 @@ import cors from 'cors';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
-
+import mealRoutes from './routes/meal.route.js';
+import uploadRoutes from './routes/upload.route.js';
 
 rabbitmq.connect();
 
@@ -59,6 +60,10 @@ app.use('/api/user/tiffin',userTiffinRoutes);
 app.use('/api/admin/tiffin',adminTiffinRoutes);
 app.use('/api/admin', adminOrderRoutes);
 app.use('/api/admin/users',adminUserRoutes);
+
+app.use('/api/admin/meals',mealRoutes)
+
+app.use('/api/image/', uploadRoutes);
 
 ///route for payment
 app.use('/api/payment', paymentRoutes);
