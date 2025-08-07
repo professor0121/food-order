@@ -1,10 +1,11 @@
-import { Hero12 } from '@/components/hero12'
+import HeroAllPages from '@/components/HeroAllPages'
 import React from 'react'
+import { HeroBanner } from '@/images/images'
 
 const FoodMenu = () => {
   return (
     <div>
-            <Hero title="Food Menu" description="Explore our delicious food options" image="/path/to/image.jpg" />
+            <HeroAllPages title="Food Menu" description="Explore our delicious food options" image={HeroBanner} />
     </div>
   )
 }
