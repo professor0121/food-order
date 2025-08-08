@@ -9,8 +9,8 @@ const tiffinSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Regular', 'Premium', 'Diet', 'South Indian', 'North Indian', 'Custom'],
-    default: 'Regular'
+    enum: ['regular', 'premium', 'diet', 'south_indian', 'north_indian', 'custom'],
+    default: 'regular'
   },
 
   items: [{

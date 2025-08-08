@@ -2,6 +2,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 import {createTiffinService,getTiffinService ,updateTiffinService,deleteTiffinService} from '../services/adminTiffin.service.js';
 
 export const createTiffin = asyncHandler(async (req, res) => {
+  console.log("Creating Tiffin with data:", req.body);
   const tiffin = await createTiffinService(req.body);
   res.status(201).json({
     success: true,
