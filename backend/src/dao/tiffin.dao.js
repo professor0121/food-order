@@ -9,7 +9,7 @@ export const findTiffinByUserId = async (userId) => {
 }
 
 export const createTiffinDAO = async (tiffin) => {
-    const newTiffin = new Tiffin(data);
+    const newTiffin = new Tiffin(tiffin);
     return await newTiffin.save();
 };
 
