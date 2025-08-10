@@ -14,6 +14,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { ModeToggle } from "./mode-toggle"
+import { Logo } from "@/images/images"
+import Profile from "./Profile"
 
 const components = [
   {
@@ -59,14 +61,24 @@ export default function Header() {
     className="flex w-full justify-between mt-6"
     >
     <div className="flex">
-        Logo
+      <Link to="/">
+        <img
+          src={Logo}
+          alt="Logo"
+          className="h-12 w-12 rounded-full"
+        />
+      </Link>
     </div>
     <NavigationMenu
     className={"flex ml-24"}
     viewport={false}>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Home</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link to="/">
+            Home
+            </Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -114,11 +126,13 @@ export default function Header() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/docs">Docs</Link>
+            <Link to="/about">About</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>List</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link to="/food-menu">Food Menu</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-4">
               <li>
@@ -151,7 +165,9 @@ export default function Header() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link to="/services">Services</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
               <li>
@@ -169,7 +185,9 @@ export default function Header() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
+          <NavigationMenuTrigger>
+            <Link to="/cart">Cart</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
               <li>
@@ -198,7 +216,7 @@ export default function Header() {
       </NavigationMenuList>
     </NavigationMenu>
     <div className="flex gap-4 justify-center items-center">
-        Profile
+        <Profile/>
         <ModeToggle />
     </div>
     </div>
