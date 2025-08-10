@@ -10,6 +10,10 @@ import Layout from './layout.jsx'
 import ProtectedRoute from '@/components/ProtectedRoute.jsx';
 import About from '../Pages/About.jsx';
 import FoodMenu from '../Pages/FoodMenu.jsx';
+import TermsConditions from '../Pages/TermsConditions.jsx';
+import PrivacyPolicy from '../Pages/PrivacyPolicy.jsx';
+import Services from '../Pages/Services.jsx';
+import Cart from '../Pages/Cart.jsx';
 
 const AppRoutes = () => {
   return (
@@ -24,6 +28,10 @@ const AppRoutes = () => {
         <Route path='/chackout-2' element={<Checkout2 />} />
         <Route path='/about' element={<ProtectedRoute><About /></ProtectedRoute>} />
         <Route path='/food-menu' element={<FoodMenu />} />
+        <Route path='/terms-conditions' element={<ProtectedRoute><TermsConditions /></ProtectedRoute>} />
+        <Route path='/privacy-policy' element={<ProtectedRoute><PrivacyPolicy /></ProtectedRoute>} />
+        <Route path='/services' element={<ProtectedRoute><Services /></ProtectedRoute>} />
+        <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
       </Routes>
     </Layout>
   )

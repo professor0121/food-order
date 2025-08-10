@@ -1,60 +1,26 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { Logo } from "@/images/images";
+import {SocialLinks} from "@/Info/SocialLinks";
+import { AppName,copyright,description } from "@/Info/AppInfo";
+import { sections } from "@/Info/FooterPageInfo";
 
-const defaultSections = [
-  {
-    title: "Product",
-    links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-      { name: "Privacy", href: "#" },
-    ],
-  },
-];
 
 const defaultSocialLinks = [
-  { icon: <FaInstagram className="size-5" />, href: "#", label: "Instagram" },
-  { icon: <FaFacebook className="size-5" />, href: "#", label: "Facebook" },
-  { icon: <FaTwitter className="size-5" />, href: "#", label: "Twitter" },
-  { icon: <FaLinkedin className="size-5" />, href: "#", label: "LinkedIn" },
+  { icon: <FaInstagram className="size-5" />, href: SocialLinks.instagram, label: "Instagram" },
+  { icon: <FaFacebook className="size-5" />, href: SocialLinks.facebook, label: "Facebook" },
+  { icon: <FaTwitter className="size-5" />, href: SocialLinks.twitter, label: "Twitter" },
+  { icon: <FaLinkedin className="size-5" />, href: SocialLinks.linkedin, label: "LinkedIn" },
 ];
 
 const defaultLegalLinks = [
-  { name: "Terms and Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
+  { name: "Terms and Conditions", href: "/terms-conditions" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 const Footer7 = ({
-  logo = {
-    url: "https://www.shadcnblocks.com",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
-    alt: "logo",
-    title: "Shadcnblocks.com",
-  },
-
-  sections = defaultSections,
-  description = "A collection of components for your startup business or side project.",
   socialLinks = defaultSocialLinks,
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
   legalLinks = defaultLegalLinks
 }) => {
   return (
@@ -65,10 +31,10 @@ const Footer7 = ({
           <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
             {/* Logo */}
             <div className="flex items-center gap-2 lg:justify-start">
-              <a href={logo.url}>
-                <img src={logo.src} alt={logo.alt} title={logo.title} className="h-8" />
-              </a>
-              <h2 className="text-xl font-semibold">{logo.title}</h2>
+              <Link to="/">
+                <img src={Logo} alt="logo" className="h-8" />
+              </Link>
+              <h2 className="text-xl font-semibold">{AppName}</h2>
             </div>
             <p className="text-muted-foreground max-w-[70%] text-sm">
               {description}
@@ -104,7 +70,7 @@ const Footer7 = ({
           <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
             {legalLinks.map((link, idx) => (
               <li key={idx} className="hover:text-primary">
-                <a href={link.href}> {link.name}</a>
+                <Link to={link.href}> {link.name}</Link>
               </li>
             ))}
           </ul>
