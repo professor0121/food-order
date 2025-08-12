@@ -1,34 +1,37 @@
-import Versions from './components/Versions'
-import electronLogo from './assets/electron.svg'
+import React from 'react'
+import PropTypes from 'prop-types'
+import Header from './components/Header'
+import Layout from './Layout'
+import Home from './Pages/Home'
+import {  Routes,Route } from 'react-router-dom'
+import Dashboard from './Pages/Dashboard'
+import Orders from './Pages/Orders'
+import Activity from './Pages/Activity'
+import Users from './Pages/Users'
+import Tiffin from './Pages/Tiffin'
+import Meal from './Pages/Meal'
+import Staff from './Pages/Staff'
+import Settings from './Pages/Settings'
 
-function App() {
-  const ipcHandle = () => window.electron.ipcRenderer.send('ping')
-
+const App = props => {
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="creator">Powered by electron-vite</div>
-      <div className="text">
-        Build an Electron app with <span className="react">React</span>
-      </div>
-      <p className="tip">
-        Please try pressing <code>F12</code> to open the devTool
-      </p>
-      <div className="actions">
-        <div className="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
-          </a>
-        </div>
-        <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
-            Send IPC
-          </a>
-        </div>
-      </div>
-      <Versions></Versions>
-    </>
+    <Layout>
+      <Routes>
+         <Route path="/" element={<Home />} />
+         <Route path="/dashboard" element={<Dashboard/>} />
+         <Route path="/orders" element={<Orders/>} />
+         <Route path="/activity" element={<Activity/>} />
+         <Route path="/users" element={<Users/>} />
+         <Route path="/tiffin" element={<Tiffin/>} />
+         <Route path="/meals" element={<Meal/>} />
+         <Route path="/staff" element={<Staff/>} />
+         <Route path="/settings" element={<Settings/>} />
+
+      </Routes>
+    </Layout>
   )
 }
+
+App.propTypes = {}
 
 export default App
