@@ -22,3 +22,10 @@ export const getAllMeals = asyncHandler(async (req, res) => {
   const meals = await Meal.find();
   res.status(200).json(meals);
 })
+
+export const getSingleMeal = asyncHandler(async (req, res) => {
+  const { id } = req.params; 
+  console.log("meal id", id);
+  const meal = await Meal.findById(id);
+  res.status(200).json(meal);
+});

@@ -9,5 +9,5 @@ const upload = multer({ storage });
 
 // POST /api/meals
 router.post('/create',adminAuth, createMeal);
-router.get('/', adminAuth,getAllMeals);
+router.get('/',getAllMeals);
 export default router;

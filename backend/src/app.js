@@ -16,6 +16,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import mealRoutes from './routes/meal.route.js';
 import uploadRoutes from './routes/upload.route.js';
+import mealUserRoutes from './routes/mealUser.route.js';
 
 rabbitmq.connect();
 
@@ -62,6 +63,7 @@ app.use('/api/admin', adminOrderRoutes);
 app.use('/api/admin/users',adminUserRoutes);
 
 app.use('/api/admin/meals',mealRoutes)
+app.use('/api/users/meals', mealUserRoutes);
 
 app.use('/api/image/', uploadRoutes);
 
