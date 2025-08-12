@@ -27,8 +27,8 @@ const ProtectedRoute = ({ children }) => {
       </div>
     )
   }
-
-  if (!isAuthenticated && !loading) {
+// Prevent infinite redirect loop
+  if (!isAuthenticated && !loading && location.pathname !== "/") {
     return <Navigate to="/" replace />
   }
 

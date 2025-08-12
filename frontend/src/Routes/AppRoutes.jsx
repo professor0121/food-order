@@ -14,6 +14,8 @@ import TermsConditions from '../Pages/TermsConditions.jsx';
 import PrivacyPolicy from '../Pages/PrivacyPolicy.jsx';
 import Services from '../Pages/Services.jsx';
 import Cart from '../Pages/Cart.jsx';
+import FoodDescription from '../Pages/FoodDescription.jsx'
+
 
 const AppRoutes = () => {
   return (
@@ -32,6 +34,7 @@ const AppRoutes = () => {
         <Route path='/privacy-policy' element={<ProtectedRoute><PrivacyPolicy /></ProtectedRoute>} />
         <Route path='/services' element={<ProtectedRoute><Services /></ProtectedRoute>} />
         <Route path='/cart' element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+        <Route path='/food-description' element={<ProtectedRoute><FoodDescription/></ProtectedRoute>}/>
       </Routes>
     </Layout>
   )
