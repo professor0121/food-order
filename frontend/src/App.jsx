@@ -7,15 +7,15 @@ import { loadUserFromToken } from './Redux/slices/authSlice'
 
 
 const App = () => {
-  //   const dispatch = useDispatch()
-  // const { isAuthenticated } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
+  const { isAuthenticated } = useSelector(state => state.auth)
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token")
-  //   if (token && !isAuthenticated&& token===null) {
-  //     dispatch(loadUserFromToken())
-  //   }
-  // }, [dispatch])
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    if (token && !isAuthenticated&& token===null) {
+      dispatch(loadUserFromToken())
+    }
+  }, [dispatch])
   return (
     <BrowserRouter>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
